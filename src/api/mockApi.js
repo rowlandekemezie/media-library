@@ -2,48 +2,42 @@ import delay from './delay';
 
 
 const images = [
-     {
-    id: "react-flux-building-applications",
-    title: "Building Applications in React and Flux",
-    watchHref: "http://www.pluralsight.com/courses/react-flux-building-applications",
-    authorId: "cory-house",
-    length: "5:08",
-    category: "JavaScript"
+  {
+    id: 1,
+    title: "images 1",
+    watchHref: "https://farm2.staticflickr.com/1553/25266806624_fdd55cecbc.jpg"
   },
   {
-    id: "clean-code",
-    title: "Clean Code: Writing Code for Humans",
-    watchHref: "http://www.pluralsight.com/courses/writing-clean-code-humans",
-    authorId: "cory-house",
-    length: "3:10",
-    category: "Software Practices"
+    id: 2,
+    title: "image 2",
+    watchHref: "https://farm2.staticflickr.com/1581/25283151224_50f8da511e.jpg"
   },
   {
-    id: "architecture",
-    title: "Architecting Applications for the Real World",
-    watchHref: "http://www.pluralsight.com/courses/architecting-applications-dotnet",
-    authorId: "cory-house",
-    length: "2:52",
-    category: "Software Architecture"
+    id: 3,
+    title: "image 3",
+    watchHref: "https://farm2.staticflickr.com/1653/25265109363_f204ea7b54.jpg"
   },
   {
-    id: "career-reboot-for-developer-mind",
-    title: "Becoming an Outlier: Reprogramming the Developer Mind",
-    watchHref: "http://www.pluralsight.com/courses/career-reboot-for-developer-mind",
-    authorId: "cory-house",
-    length: "2:30",
-    category: "Career"
+    id: 4,
+    title: "image 4",
+    watchHref: "https://farm2.staticflickr.com/1571/25911417225_a74c8041b0.jpg"
+
+  },
+  {
+    id: 5,
+    title: "image 5",
+    watchHref: "https://farm2.staticflickr.com/1450/25888412766_44745cbca3.jpg"
   }
 ];
 
 class imagesApi {
-    static loadAllImages() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(Object.assign([], images));
-            }, delay);
-        });
-    }
+  static loadAllImages() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Object.assign([], images));
+      }, delay);
+    });
+  }
 }
 
 export default imagesApi;

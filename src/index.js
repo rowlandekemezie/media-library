@@ -10,8 +10,8 @@ import {Router, browserHistory} from 'react-router';
 const store = configStore();
 store.dispatch(loadImages());
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={browserHistory} routes={routes}/>
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes}/>
+  </Provider>,
+  document.getElementById('root')
 );
