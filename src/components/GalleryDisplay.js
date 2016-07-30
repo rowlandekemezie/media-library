@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+//import React, {PropTypes} from 'react';
 
 // const GalleryDisplay = ({images, selectedImage, handleSelect}) => {
 //     return (
@@ -19,4 +19,4 @@ import React, {PropTypes} from 'react';
 // };
 
 
-export default GalleryDisplay;
+//export default GalleryDisplay;

@@ -12,6 +12,12 @@ class GalleryContainer extends Component {
     this.props.actions.selectedImage(selectedImage);
   }
 
+  // componentDidMount(){
+  //   console.log(this.props, 'this is the day going')
+  //  //const me =  this.props.actions.loadImages();
+  //   console.log(me)
+  // }
+
   render() {
     const {images, selectedImage} = this.props;
     return (
@@ -33,7 +39,7 @@ class GalleryContainer extends Component {
 }
 
 GalleryContainer.propTypes = {
-  images: PropTypes.array
+  images: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
