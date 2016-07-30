@@ -13,14 +13,3 @@ export function selectedImage(image) {
     image
   }
 }
-
-// export function loadImages() {
-//   return function (dispatch) {
-//     return mockApi.loadAllImages()
-//       .then(images => {
-//         dispatch(loadImageSuccess(images));
-//       }).catch(error => {
-//         throw(error);
-//       })
-//   };
-// }

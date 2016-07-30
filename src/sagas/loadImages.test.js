@@ -1,9 +1,10 @@
 import 'babel-polyfill';
 import {expect} from 'chai';
-// import {takeEvery, delay} from 'redux-saga'
+import {takeEvery, delay} from 'redux-saga'
 import {put,take, call, fork} from 'redux-saga/effects';
 
 import {watchLoadImages, loadImages} from './loadImagesSaga';
+import {fetchImages} from '../Api/flickr';
 
 describe('Test for watch Images', () => {
   const gen = watchLoadImages();
@@ -19,8 +20,23 @@ describe('Test for watch Images', () => {
 });
 
 describe('Test for load Images', () => {
+   call(delay, 1000);
   const gen = loadImages();
-  it('should load images', () => {
-    expect(gen.next().value).to.deep.equal(call());
+  const error = 'error';
+  const images = [0];
+  it('should fetch images from the the Api', () => {
+    expect(gen.next().value).to.deep.equal(call(delay, 1000));
+  });
+  it('should fetch images from the the Api', () => {
+     expect(gen.next().value).to.deep.equal(call(fetchImages));
+  });
+  it('should dispatch LOAD_IMAGES_SUCCESS action to the reducer', () => {
+     expect(gen.next(images).value).to.deep.equal(put({type: 'LOAD_IMAGES_SUCCESS', images}));
+  });
+   it('should dispatch SELECTED_IMAGE action to the reducer', () => {
+    expect(gen.next(images).value).to.deep.equal(put({type: 'SELECTED_IMAGE', image:images[0]}))
+  });
+  it('should dispatch LOAD_IMAGE_ERROR action to the reducer', () => {
+    expect(gen.throw(error).value).to.deep.equal(put({type: 'LOAD_IMAGES_ERROR', error}));
   })
 })

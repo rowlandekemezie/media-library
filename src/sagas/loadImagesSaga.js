@@ -8,11 +8,11 @@ import * as types from '../constants/actionTypes'
 export function* loadImages() {
   try {
     yield call(delay, 1000);
-    const images = yield fetchImages();
+    const images = yield call(fetchImages);
     yield put({type: types.LOAD_IMAGES_SUCCESS, images});
     yield put({type: types.SELECTED_IMAGE, image: images[0]});
   } catch (error) {
-    yield put({type: 'LOAD_IMAGES_ERROR'}, error)
+    yield put({type: 'LOAD_IMAGES_ERROR', error})
   }
 }
 
