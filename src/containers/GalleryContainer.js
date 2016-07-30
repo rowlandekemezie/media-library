@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import '../styles/gallery.css';
-import * as Actions from '../actions/actionTypes';
+import * as Actions from '../constants/actionTypes';
 
 
 class GalleryContainer extends Component {

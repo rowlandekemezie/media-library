@@ -1,4 +1,4 @@
-import * as types from './actionTypes';
+import * as types from '../constants/actionTypes';
 import mockApi from '../api/mockApi';
 
 export function loadImageSuccess(images) {
