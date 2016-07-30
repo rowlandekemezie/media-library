@@ -1,12 +1,15 @@
 import {createStore, applyMiddleware} from 'redux';
-import rootReducer from '../reducers';
-// import saga from 'redux-saga';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
-export default function configureStore(initialState) {
-  return createStore(
+import rootReducer from '../reducers';
+import {watchLoadImages} from '../sagas/loadImagesSaga';
+
+  const sagaMiddleware = createSagaMiddleware();
+  const store =  createStore(
     rootReducer,
-    initialState,
-    applyMiddleware(thunk)
+    applyMiddleware(sagaMiddleware)
   );
-}
+
+sagaMiddleware.run(watchLoadImages);
+
+export default store;

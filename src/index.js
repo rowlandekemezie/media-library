@@ -7,7 +7,7 @@ import './styles/index.css';
 import routes from './routes';
 import {Router, browserHistory} from 'react-router';
 
-const store = configStore();
+const store = configStore;
 store.dispatch(loadImages());
 ReactDOM.render(
   <Provider store={store}>
