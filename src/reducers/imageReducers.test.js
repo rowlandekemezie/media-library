@@ -22,6 +22,7 @@ describe('Test for image Reducers', () => {
 
   it('should return the selected image', () => {
     const testAction = {type: types.SELECTED_IMAGE, image: 'www.test.com/1.jpg'};
-    expect(imageReducer(initialState, testAction)).toEqual(['www.test.com/1.jpg'])
+    const expectValue = {images: [ { id: 1, watchHref: 'www.test.com/1.jpg' } ], selectedImage: 'www.test.com/1.jpg'};
+    expect(imageReducer(initialState, testAction)).toEqual(expectValue);
   })
 });
