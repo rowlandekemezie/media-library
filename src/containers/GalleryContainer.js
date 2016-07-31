@@ -6,7 +6,7 @@ import * as Actions from '../actions/imageActions';
 // import GalleryDisplay from '../components/GalleryDisplay'
 
 
-class GalleryContainer extends Component {
+export default class GalleryContainer extends Component {
 
   handleSelect(selectedImage) {
     this.props.actions.selectedImage(selectedImage);
@@ -19,13 +19,13 @@ class GalleryContainer extends Component {
   // }
 
   render() {
-    const {images, selectedImage} = this.props;
+    const {images, selectedImage} = this.props; // destructuring images and selectedImages for this.props for readability
     return (
       <div className="image-gallery">
         <div className="gallery-image">
           <div id={selectedImage.id}><img src={selectedImage.watchHref}/></div>
         </div>
-        <div className="image-scroller">
+        <div className="image-thumbnail">
           {images.map((image) =>(
             <div key={image.id} onClick={this.handleSelect.bind(this, image)}>
               <h6> {image.title} </h6>
