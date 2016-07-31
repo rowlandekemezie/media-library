@@ -1,4 +1,4 @@
-import 'babel-polyfill' // Allows you to use generators since they're not native to ES6
+import 'babel-polyfill';
 import {put, call} from 'redux-saga/effects';
 import {takeEvery, delay} from 'redux-saga'; //takeEvery is a high-level API built using take and fork
 import {fetchImages} from '../Api/flickr';
