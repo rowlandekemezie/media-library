@@ -6,30 +6,57 @@ import * as Actions from '../actions/imageActions';
 // import GalleryDisplay from '../components/GalleryDisplay'
 
 
-class GalleryContainer extends Component {
+export default class GalleryContainer extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      query: 'rain'
+    };
+    this.handleFetchUnsplash = this.handleFetchUnsplash.bind(this);
+  }
 
   handleSelect(selectedImage) {
     this.props.actions.selectedImage(selectedImage);
   }
 
+  handleFetchUnsplash(e) {
+    e.preventDefault();
+    console.log('this is the place a', this.state.query);
+    if (this.query !== null) {
+      this.props.actions.unsplashAction(this.query.value);
+      console.log(this.query.value, 'query attribute');
+    }
+  }
+
   // componentDidMount(){
   //   console.log(this.props, 'this is the day going')
-  //  //const me =  this.props.actions.loadImages();
+  //const me =  this.props.actions.loadImages();
   //   console.log(me)
   // }
 
   render() {
-    const {images, selectedImage} = this.props;
+    const {images, selectedImage} = this.props; // destructuring images and selectedImages for this.props for readability
     return (
       <div className="image-gallery">
         <div className="gallery-image">
-          <div id={selectedImage.id}><img src={selectedImage.watchHref}/></div>
+          <div id={selectedImage.id}><img src={selectedImage.mediaUrl}/></div>
         </div>
-        <div className="image-scroller">
+        <div>
+          <input
+            type="text"
+            ref={(ref) => this.query = ref}
+          />
+          <input
+            type="submit"
+            value="Unsplash Button"
+            onClick={this.handleFetchUnsplash}/>
+        </div>
+        <div className="image-thumbnail">
           {images.map((image) =>(
             <div key={image.id} onClick={this.handleSelect.bind(this, image)}>
               <h6> {image.title} </h6>
-              <img src={image.watchHref}/>
+              <img src={image.mediaUrl}/>
             </div>
           ))}
         </div>
@@ -42,13 +69,12 @@ GalleryContainer.propTypes = {
   images: PropTypes.array.isRequired
 };
 
-function mapStateToProps(state) {
-  const {images} = state; // destructuring state from Redux store.
+const mapStateToProps = ({images}) => {
   return {
     images: images[0],
     selectedImage: images.selectedImage
   };
-}
+};
 
 function mapStateToDispatch(dispatch) {
   return {

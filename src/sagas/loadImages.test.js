@@ -1,6 +1,6 @@
-import 'babel-polyfill';
+require('babel-polyfill');
 import {expect} from 'chai';
-import {takeEvery, delay} from 'redux-saga'
+import {delay} from 'redux-saga'
 import {put, take, call, fork} from 'redux-saga/effects';
 
 import {watchLoadImages, loadImages} from './loadImagesSaga';
@@ -22,8 +22,8 @@ describe('Test for watch Images', () => {
 describe('Test for load Images', () => {
   call(delay, 1000);
   const gen = loadImages();
-  const error = 'error';
-  const images = [0];
+  const error = 'fail';
+  const images = ['www.photo.com/you.jpg'];
   it('should fetch images from the the Api', () => {
     expect(gen.next().value).to.deep.equal(call(delay, 1000));
   });
@@ -39,4 +39,4 @@ describe('Test for load Images', () => {
   it('should dispatch LOAD_IMAGE_ERROR action to the reducer', () => {
     expect(gen.throw(error).value).to.deep.equal(put({type: 'LOAD_IMAGES_ERROR', error}));
   })
-})
+});

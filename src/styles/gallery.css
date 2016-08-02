@@ -3,7 +3,7 @@
     padding: 2px;
 }
 
-.egghead {
+.header-logo {
     width: 30px;
     padding: 5px;
 }
@@ -27,14 +27,14 @@
     max-height: 250px;
 }
 
-.image-scroller {
+.image-thumbnail {
     display: flex;
     justify-content: space-around;
     overflow: auto;
     overflow-y: hidden;
 }
 
-.image-scroller img {
+.image-thumbnail img {
     width: 50px;
     height: 50px;
     padding: 1px;
