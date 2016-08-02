@@ -9,7 +9,7 @@ export function loadFlickrImages() {
 
 export function selectedImage(image) {
   return {
-    type: types.SELECTED_IMAGE,
+    type: types.SELECTED_FLICKR_IMAGE,
     image
   }
 }
