@@ -8,26 +8,32 @@ import * as Actions from '../actions/imageActions';
 
 export default class GalleryContainer extends Component {
 
-  constructor(props, context){
+  constructor(props, context) {
     super();
-    this.state ={
-      query: ''
+    this.state = {
+      query: 'rain'
     };
     this.getQueryParams = this.getQueryParams.bind(this);
   }
+
   handleSelect(selectedImage) {
     this.props.actions.selectedImage(selectedImage);
   }
 
-  getQueryParams(e){
+  getQueryParams(e) {
     e.preventDefault();
-    const query = this.state.query;
-    this.props.actions.unsplashAction(query);
+    console.log('this is the place a', this.state.query);
+    // const query = this.state.query;
+    if (this.query !== null) {
+      this.props.actions.unsplashAction(this.query.value);
+      console.log(this.query.value, 'query attribute');
+    }
     // this.setState({query})
   }
+
   // componentDidMount(){
   //   console.log(this.props, 'this is the day going')
-   //const me =  this.props.actions.loadImages();
+  //const me =  this.props.actions.loadImages();
   //   console.log(me)
   // }
 
@@ -41,11 +47,12 @@ export default class GalleryContainer extends Component {
         <div>
           <input
             type="text"
-            value={this.state.query} />
+            ref={(ref) => this.query = ref}
+          />
           <input
             type="submit"
             value="Unsplash Button"
-            onClick={this.getQueryParams} />
+            onClick={this.getQueryParams}/>
         </div>
         <div className="image-thumbnail">
           {images.map((image) =>(
@@ -65,6 +72,7 @@ GalleryContainer.propTypes = {
 };
 
 function mapStateToProps(state) {
+  console.log(state, 'this is the state of things')
   const {images} = state; // destructuring state from Redux store.
   return {
     images: images[0],
