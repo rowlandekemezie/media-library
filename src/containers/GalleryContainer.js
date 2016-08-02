@@ -8,13 +8,26 @@ import * as Actions from '../actions/imageActions';
 
 export default class GalleryContainer extends Component {
 
+  constructor(props, context){
+    super();
+    this.state ={
+      query: ''
+    };
+    this.getQueryParams = this.getQueryParams.bind(this);
+  }
   handleSelect(selectedImage) {
     this.props.actions.selectedImage(selectedImage);
   }
 
+  getQueryParams(e){
+    e.preventDefault();
+    const query = this.state.query;
+    this.props.actions.unsplashAction(query);
+    // this.setState({query})
+  }
   // componentDidMount(){
   //   console.log(this.props, 'this is the day going')
-  //  //const me =  this.props.actions.loadImages();
+   //const me =  this.props.actions.loadImages();
   //   console.log(me)
   // }
 
@@ -23,13 +36,22 @@ export default class GalleryContainer extends Component {
     return (
       <div className="image-gallery">
         <div className="gallery-image">
-          <div id={selectedImage.id}><img src={selectedImage.watchHref}/></div>
+          <div id={selectedImage.id}><img src={selectedImage.mediaUrl}/></div>
+        </div>
+        <div>
+          <input
+            type="text"
+            value={this.state.query} />
+          <input
+            type="submit"
+            value="Unsplash Button"
+            onClick={this.getQueryParams} />
         </div>
         <div className="image-thumbnail">
           {images.map((image) =>(
             <div key={image.id} onClick={this.handleSelect.bind(this, image)}>
               <h6> {image.title} </h6>
-              <img src={image.watchHref}/>
+              <img src={image.mediaUrl}/>
             </div>
           ))}
         </div>
