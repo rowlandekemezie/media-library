@@ -7,33 +7,22 @@ import * as Actions from '../actions/imageActions';
 
 
 export default class GalleryContainer extends Component {
-
   constructor() {
     super();
-    this.state = {
-      query: 'rain'
-    };
-    this.handleFetchUnsplash = this.handleFetchUnsplash.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
-  handleSelect(selectedImage) {
-    this.props.actions.selectedImage(selectedImage);
+  handleSelectImage(selectedImage) {
+    this.props.actions.selectImageAction(selectedImage);
   }
 
-  handleFetchUnsplash(e) {
-    e.preventDefault();
-    console.log('this is the place a', this.state.query);
+  handleSearch(event) {
+    event.preventDefault();
     if (this.query !== null) {
-      this.props.actions.unsplashAction(this.query.value);
-      console.log(this.query.value, 'query attribute');
+      this.props.actions.unsplashImagesAction(this.query.value);
+      this.query.value = '';
     }
   }
-
-  // componentDidMount(){
-  //   console.log(this.props, 'this is the day going')
-  //const me =  this.props.actions.loadImages();
-  //   console.log(me)
-  // }
 
   render() {
     const {images, selectedImage} = this.props; // destructuring images and selectedImages for this.props for readability
@@ -49,12 +38,12 @@ export default class GalleryContainer extends Component {
           />
           <input
             type="submit"
-            value="Unsplash Button"
-            onClick={this.handleFetchUnsplash}/>
+            value="Search Images"
+            onClick={this.handleSearch}/>
         </div>
         <div className="image-thumbnail">
           {images.map((image) =>(
-            <div key={image.id} onClick={this.handleSelect.bind(this, image)}>
+            <div key={image.id} onClick={this.handleSelectImage.bind(this, image)}>
               <h6> {image.title} </h6>
               <img src={image.mediaUrl}/>
             </div>

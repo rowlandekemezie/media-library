@@ -1,21 +1,21 @@
 import * as types from '../constants/actionTypes';
-//import mockApi from '../Api/mockApi';
 
-export function loadFlickrImages() {
+export function flickrImagesAction() {
   return {
-    type: types.LOAD_IMAGES_FROM_FLICKR
+    type: types.FLICKR_IMAGES_REQUEST
   }
 }
 
-export function selectedImage(image) {
+export function selectImageAction(image) {
   return {
-    type: types.SELECTED_FLICKR_IMAGE,
+    type: types.SELECTED_IMAGE,
     image
   }
 }
-export function unsplashAction(query_params) {
+
+export function unsplashImagesAction(payload) {
   return {
-    type: types.LOAD_IMAGES_FROM_UNSPLASH,
-    query_params
+    type: types.UNSPLASH_IMAGES_REQUEST,
+    payload
   }
 }
