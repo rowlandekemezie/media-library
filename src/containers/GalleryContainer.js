@@ -20,7 +20,7 @@ export default class GalleryContainer extends Component {
   handleSearch(event) {
     event.preventDefault();
     if (this.query !== null) {
-      this.props.actions.unsplashImagesAction(this.query.value);
+      this.props.actions.searchMediaAction(this.query.value);
       this.query.value = '';
     }
   }
@@ -32,7 +32,7 @@ export default class GalleryContainer extends Component {
         <div>
           <input
             type="text"
-            ref={(ref) => (this.query = ref)}/>
+            ref={(ref) => this.query = ref}/>
           <input
             type="submit"
             value="Search Images"
@@ -52,10 +52,13 @@ GalleryContainer.propTypes = {
   images: PropTypes.array.isRequired
 };
 
-const mapStateToProps = ({images}) => {
+const mapStateToProps = ({images, videos}) => {
+  console.log(videos, 'videos that returns from the api calls');
+  console.log(images, 'this is the images or videos form the call')
   return {
     images: images[0],
-    selectedImage: images.selectedImage
+    selectedImage: images.selectedImage,
+    videos: videos
   };
 };
 

@@ -1,10 +1,10 @@
 import {fork} from 'redux-saga/effects'; // The "fork" effect allows you make non-blocking calls which I can be joined later
-import {watchLoadFlickrImages, watchLoadUnsplashImages} from './watchers';
+import {watchLoadFlickrImages, watchSearchMedia} from './watchers';
 
 export function* watchers() {
   yield[
     fork(watchLoadFlickrImages),
-    fork(watchLoadUnsplashImages)
+    fork(watchSearchMedia)
   ]
 }
 

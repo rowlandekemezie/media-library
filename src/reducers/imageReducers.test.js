@@ -16,7 +16,7 @@ describe('Test for image Reducers', () => {
   });
 
   it('should return the all images in the stores tree', () => {
-    const testAction = {type: types.LOAD_IMAGES_SUCCESS, images: 'www.test.com/1.jpg'};
+    const testAction = {type: types.SEARCH_MEDIA_SUCCESS, images: 'www.test.com/1.jpg'};
     expect(imageReducer(initialState, testAction)).toEqual(['www.test.com/1.jpg'])
   });
 

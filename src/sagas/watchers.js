@@ -1,16 +1,15 @@
-import {loadflickrImages, loadUnsplashedImages} from './loadImagesSaga';
+import {loadFlickrImagesSaga, searchMediaSaga} from './loadImagesSaga';
 import * as types from '../constants/actionTypes';
-// import {take} from 'redux-saga/effects';
 import {takeEvery} from 'redux-saga';
 
 export function* watchLoadFlickrImages() {
   while (true) {
-    yield* takeEvery(types.FLICKR_IMAGES_REQUEST, loadflickrImages);
+    yield* takeEvery(types.FLICKR_IMAGES_REQUEST, loadFlickrImagesSaga);
   }
 }
 
-export function* watchLoadUnsplashImages() {
+export function* watchSearchMedia() {
   while(true){
-    yield* takeEvery(types.UNSPLASH_IMAGES_REQUEST, loadUnsplashedImages);
+    yield* takeEvery(types.SEARCH_MEDIA_REQUEST, searchMediaSaga);
   }
 }

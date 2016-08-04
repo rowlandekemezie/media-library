@@ -15,7 +15,15 @@ export function selectImageAction(image) {
 
 export function unsplashImagesAction(payload) {
   return {
-    type: types.UNSPLASH_IMAGES_REQUEST,
+    type: types.UNSPLASH_IMAGES_SUCCESS,
     payload
   }
 }
+
+export function searchMediaAction(payload) {
+  return {
+    type: types.SEARCH_MEDIA_REQUEST,
+    payload
+  }
+}
+

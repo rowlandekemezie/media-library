@@ -9,6 +9,6 @@ import rootSaga from '../sagas';
   return {
     ...createStore(rootReducer, initialState,
       applyMiddleware(sagaMiddleware)),
-    runSage: sagaMiddleware.run(rootSaga)
+    runSaga: sagaMiddleware.run(rootSaga)
   }
 };
