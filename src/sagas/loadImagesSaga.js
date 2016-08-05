@@ -1,7 +1,7 @@
+
 import {put, call} from 'redux-saga/effects';
 import {delay} from 'redux-saga'; //takeEvery is a high-level API built using take and fork
 import {flickrImages, shutterStockImages, unsplashImages} from '../Api/api';
-import * as types from '../constants/actionTypes'
 
 
 export function* searchMediaSaga(action) {
