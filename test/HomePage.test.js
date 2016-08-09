@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import {shallow} from 'enzyme';
-import HomePage from './HomePage';
+import HomePage from '../src/components/HomePage';
 import {Link} from 'react-router';
 
 describe('Test for HomePage view', () => {
