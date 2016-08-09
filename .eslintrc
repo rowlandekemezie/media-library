@@ -1,0 +1,23 @@
+{
+  "extends": "eslint-config-airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "mocha": true,
+    "node": true
+  },
+  "globals": {
+    "expect": true,
+    "describe": true,
+    "document": true,
+    "fetch": true,
+    "window": true
+  },
+  "rules": {
+    "padded-blocks": 0,
+    "object-curly-spacing": [1, "always"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "comma-dangle": [2, "never"],
+    "no-use-before-define": [2, "nofunc"],
+    "no-unused-expressions": 0
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Gallery from  './containers/GalleryContainer';
-import App from './App';
+import App from './containers/App';
 import HomePage from './components/HomePage';
 import {Route, IndexRoute} from 'react-router';
 

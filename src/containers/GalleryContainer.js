@@ -1,86 +1,78 @@
-import React, {PropTypes, Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import '../styles/gallery.css';
-import * as Actions from '../actions/imageActions';
-// import GalleryDisplay from '../components/GalleryDisplay'
+import * as Actions from '../actions/mediaActions';
+import GalleryDisplay from '../components/GalleryDisplay';
 
 
-export default class GalleryContainer extends Component {
-
+class GalleryContainer extends Component {
   constructor() {
     super();
-    this.state = {
-      query: 'rain'
-    };
-    this.handleFetchUnsplash = this.handleFetchUnsplash.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleSelectImage = this.handleSelectImage.bind(this);
   }
 
-  handleSelect(selectedImage) {
-    this.props.actions.selectedImage(selectedImage);
+  componentDidMount() {
+    this.props.actions.flickrImagesAction();
   }
 
-  handleFetchUnsplash(e) {
-    e.preventDefault();
-    console.log('this is the place a', this.state.query);
+  handleSelectImage(selectedImage) {
+    this.props.actions.selectImageAction(selectedImage);
+  }
+
+  handleSearch(event) {
+    event.preventDefault();
     if (this.query !== null) {
-      this.props.actions.unsplashAction(this.query.value);
-      console.log(this.query.value, 'query attribute');
+      this.props.actions.searchMediaAction(this.query.value);
+      this.query.value = '';
     }
   }
 
-  // componentDidMount(){
-  //   console.log(this.props, 'this is the day going')
-  //const me =  this.props.actions.loadImages();
-  //   console.log(me)
-  // }
-
   render() {
-    const {images, selectedImage} = this.props; // destructuring images and selectedImages for this.props for readability
+    const { images, selectedImage } = this.props;
+    // destructuring images and selectedImages for this.props for readability
     return (
-      <div className="image-gallery">
-        <div className="gallery-image">
-          <div id={selectedImage.id}><img src={selectedImage.mediaUrl}/></div>
-        </div>
+      <div>
         <div>
           <input
             type="text"
-            ref={(ref) => this.query = ref}
+            ref={(ref) => (this.query = ref)}
           />
           <input
             type="submit"
-            value="Unsplash Button"
-            onClick={this.handleFetchUnsplash}/>
+            value="Search Images"
+            onClick={this.handleSearch}
+          />
         </div>
-        <div className="image-thumbnail">
-          {images.map((image) =>(
-            <div key={image.id} onClick={this.handleSelect.bind(this, image)}>
-              <h6> {image.title} </h6>
-              <img src={image.mediaUrl}/>
-            </div>
-          ))}
-        </div>
+        <GalleryDisplay
+          images={images}
+          onHandleSearch={this.handleSearch}
+          selectedImage={selectedImage}
+          onHandleSelectImage={this.handleSelectImage}
+        />
       </div>
-    )
+    );
   }
 }
 
 GalleryContainer.propTypes = {
-  images: PropTypes.array.isRequired
+  images: PropTypes.array.isRequired,
+  selectedImage: PropTypes.object,
+  actions: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({images}) => {
+const mapStateToProps = ({ images, videos }) => {
+  console.log(videos, 'videos that returns from the api calls');
+  console.log(images, 'this is the images or videos form the call')
   return {
     images: images[0],
-    selectedImage: images.selectedImage
+    selectedImage: images.selectedImage,
+    videos
   };
 };
 
-function mapStateToDispatch(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  };
-}
+const mapStateToDispatch = (dispatch) => ({ actions: bindActionCreators(Actions, dispatch) });
 
 export default connect(
   mapStateToProps,

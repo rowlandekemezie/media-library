@@ -28,7 +28,7 @@ export const shutterImage = () => {
 };
 
 
-export const unsplashImage = (query_params) => {
+export const unsplashImages = (query_params) => {
   const UNSPLASH_API_ENDPOINT = `https://api.unsplash.com/photos/search/?client_id=${UNSPLASH_APPLICATION_ID}&query=${query_params}&page=1`;
   return fetch(UNSPLASH_API_ENDPOINT).then(response => {
     return response.json().then((data) => {
@@ -36,7 +36,7 @@ export const unsplashImage = (query_params) => {
         return {
           id: id,
           mediaUrl: urls.full,
-          download: links
+          download: links.download
         }
       });
     });

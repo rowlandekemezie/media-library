@@ -9,7 +9,7 @@
 }
 
 .image-gallery {
-    width: 300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     border: 1px solid darkgray;

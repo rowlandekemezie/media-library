@@ -1,6 +1,6 @@
 import expect from 'expect';
-import imageReducer from './imageReducers';
-import * as types from '../constants/actionTypes';
+import imageReducer from '../src/reducers/imageReducers';
+import * as types from '../src/constants/actionTypes';
 
 
 describe('Test for image Reducers', () => {
