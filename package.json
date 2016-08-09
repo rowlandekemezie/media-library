@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-react": "^6.0.0",
     "react-scripts": "0.2.1"
   },
   "dependencies": {

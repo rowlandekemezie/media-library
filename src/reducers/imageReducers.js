@@ -8,7 +8,7 @@ export default function (state = initialState.images, action) {
     case types.FLICKR_IMAGES_SUCCESS:
       return [...state, action.images];
     case types.SELECTED_IMAGE:
-      return {...state, selectedImage:action.image};
+      return { ...state, selectedImage: action.image };
     default:
       return state;
   }

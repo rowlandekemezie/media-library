@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import '../styles/gallery.css';
 import * as Actions from '../actions/mediaActions';
-import GalleryDisplay from '../components/GalleryDisplay'
+import GalleryDisplay from '../components/GalleryDisplay';
 
 
-export default class GalleryContainer extends Component {
+class GalleryContainer extends Component {
   constructor() {
     super();
     this.handleSearch = this.handleSearch.bind(this);
@@ -26,39 +26,44 @@ export default class GalleryContainer extends Component {
   }
 
   render() {
-    const {images, selectedImage} = this.props; // destructuring images and selectedImages for this.props for readability
+    const { images, selectedImage } = this.props;
+    // destructuring images and selectedImages for this.props for readability
     return (
       <div>
         <div>
           <input
             type="text"
-            ref={(ref) => this.query = ref}/>
+            ref={(ref) => (this.query = ref)}
+          />
           <input
             type="submit"
             value="Search Images"
-            onClick={this.handleSearch}/>
+            onClick={this.handleSearch}
+          />
         </div>
         <GalleryDisplay
           images={images}
           onHandleSearch={this.handleSearch}
           selectedImage={selectedImage}
-          onHandleSelectImage={this.handleSelectImage}/>
+          onHandleSelectImage={this.handleSelectImage}
+        />
       </div>
-    )
+    );
   }
 }
 
 GalleryContainer.propTypes = {
-  images: PropTypes.array.isRequired
+  images: PropTypes.array.isRequired,
+  selectedImage: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({images, videos}) => {
+const mapStateToProps = ({ images, videos }) => {
   console.log(videos, 'videos that returns from the api calls');
   console.log(images, 'this is the images or videos form the call')
   return {
     images: images[0],
     selectedImage: images.selectedImage,
-    videos: videos
+    videos
   };
 };
 
