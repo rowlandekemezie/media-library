@@ -13,6 +13,10 @@ class GalleryContainer extends Component {
     this.handleSelectImage = this.handleSelectImage.bind(this);
   }
 
+  componentDidMount() {
+    this.props.actions.flickrImagesAction();
+  }
+
   handleSelectImage(selectedImage) {
     this.props.actions.selectImageAction(selectedImage);
   }
@@ -54,7 +58,8 @@ class GalleryContainer extends Component {
 
 GalleryContainer.propTypes = {
   images: PropTypes.array.isRequired,
-  selectedImage: PropTypes.object.isRequired
+  selectedImage: PropTypes.object,
+  actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = ({ images, videos }) => {
@@ -67,11 +72,7 @@ const mapStateToProps = ({ images, videos }) => {
   };
 };
 
-function mapStateToDispatch(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  };
-}
+const mapStateToDispatch = (dispatch) => ({ actions: bindActionCreators(Actions, dispatch) });
 
 export default connect(
   mapStateToProps,

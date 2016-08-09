@@ -6,7 +6,11 @@
     "node": true
   },
   "globals": {
-    "expect": true
+    "expect": true,
+    "describe": true,
+    "document": true,
+    "fetch": true,
+    "window": true
   },
   "rules": {
     "padded-blocks": 0,
