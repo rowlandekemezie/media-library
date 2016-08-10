@@ -9,6 +9,7 @@ import routes from './routes';
 
 const store = configureStore();
 store.dispatch(flickrImagesAction());
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} routes={routes} />

@@ -6,7 +6,7 @@ import * as Actions from '../actions/mediaActions';
 import GalleryDisplay from '../components/GalleryDisplay';
 
 
-class GalleryContainer extends Component {
+class MediaGalleryPage extends Component {
   constructor() {
     super();
     this.handleSearch = this.handleSearch.bind(this);
@@ -14,6 +14,8 @@ class GalleryContainer extends Component {
   }
 
   componentDidMount() {
+    console.log('component die mount')
+    console.log(this.props.actions, 'action s in component did mount')
     this.props.actions.flickrImagesAction();
   }
 
@@ -31,49 +33,45 @@ class GalleryContainer extends Component {
 
   render() {
     const { images, selectedImage } = this.props;
-    // destructuring images and selectedImages for this.props for readability
     return (
       <div>
-        <div>
-          <input
-            type="text"
-            ref={(ref) => (this.query = ref)}
+        {images ? <div>
+          <div>
+            <input
+              type="text"
+              ref={(ref) => (this.query = ref)}
+            />
+            <input
+              type="submit"
+              value="Search Images"
+              onClick={this.handleSearch}
+            />
+          </div>
+          <GalleryDisplay
+            images={images}
+            onHandleSearch={this.handleSearch}
+            selectedImage={selectedImage}
+            onHandleSelectImage={this.handleSelectImage}
           />
-          <input
-            type="submit"
-            value="Search Images"
-            onClick={this.handleSearch}
-          />
-        </div>
-        <GalleryDisplay
-          images={images}
-          onHandleSearch={this.handleSearch}
-          selectedImage={selectedImage}
-          onHandleSelectImage={this.handleSelectImage}
-        />
+        </div> : 'loading ....'}
       </div>
     );
   }
 }
 
-GalleryContainer.propTypes = {
-  images: PropTypes.array.isRequired,
+MediaGalleryPage.propTypes = {
+  images: PropTypes.array,
   selectedImage: PropTypes.object,
   actions: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({ images, videos }) => {
-  console.log(videos, 'videos that returns from the api calls');
-  console.log(images, 'this is the images or videos form the call')
-  return {
-    images: images[0],
-    selectedImage: images.selectedImage,
-    videos
-  };
-};
+const mapStateToProps = ({ images, videos }) => ({
+  images: images[0],
+  selectedImage: images.selectedImage,
+  videos });
 
 const mapStateToDispatch = (dispatch) => ({ actions: bindActionCreators(Actions, dispatch) });
 
 export default connect(
   mapStateToProps,
-  mapStateToDispatch)(GalleryContainer);
+  mapStateToDispatch)(MediaGalleryPage);

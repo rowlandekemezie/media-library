@@ -5,13 +5,13 @@ const GalleryDisplay = ({ images, onHandleSelectImage, selectedImage }) => {
     <div className="image-gallery">
       <h4> Images </h4>
       <div className="gallery-image">
-        <div id={selectedImage.id}><img src={selectedImage.mediaUrl} alt="selected Image"/></div>
+        <div id={selectedImage.id}><img src={selectedImage.mediaUrl} alt="selected media" /></div>
       </div>
       <div className="image-thumbnail">
         {images.map((image) => (
           <div key={image.id} onClick={onHandleSelectImage.bind(this, image)}>
             <h6> {image.title} </h6>
-            <img src={image.mediaUrl} alt="select avatar"/>
+            <img src={image.mediaUrl} alt="select avatar" />
           </div>
         ))}
       </div>
