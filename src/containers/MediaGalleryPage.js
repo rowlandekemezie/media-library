@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import '../styles/gallery.css';
 import * as Actions from '../actions/mediaActions';
-import GalleryDisplay from '../components/GalleryDisplay';
+import PhotosPage from '../components/PhotosPage';
+import VideosPage from '../components/VideosPage';
 
 
 class MediaGalleryPage extends Component {
@@ -11,16 +12,15 @@ class MediaGalleryPage extends Component {
     super();
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSelectImage = this.handleSelectImage.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('component die mount')
-    console.log(this.props.actions, 'action s in component did mount')
-    this.props.actions.flickrImagesAction();
+    this.handleSelectVideo = this.handleSelectVideo.bind(this);
   }
 
   handleSelectImage(selectedImage) {
     this.props.actions.selectImageAction(selectedImage);
+  }
+
+  handleSelectVideo(selectedVideo) {
+    this.props.actions.selectVideoAction(selectedVideo);
   }
 
   handleSearch(event) {
@@ -32,26 +32,28 @@ class MediaGalleryPage extends Component {
   }
 
   render() {
-    const { images, selectedImage } = this.props;
+    const { images, selectedImage, videos, selectedVideo } = this.props;
     return (
       <div>
         {images ? <div>
-          <div>
-            <input
-              type="text"
-              ref={(ref) => (this.query = ref)}
-            />
-            <input
-              type="submit"
-              value="Search Images"
-              onClick={this.handleSearch}
-            />
-          </div>
-          <GalleryDisplay
+          <input
+            type="text"
+            ref={(ref) => (this.query = ref)}
+          />
+          <input
+            type="submit"
+            value="Search Library"
+            onClick={this.handleSearch}
+          />
+          <PhotosPage
             images={images}
-            onHandleSearch={this.handleSearch}
             selectedImage={selectedImage}
             onHandleSelectImage={this.handleSelectImage}
+          />
+          <VideosPage
+            videos={videos}
+            selectedVideo={selectedVideo}
+            onHandleSelectVideo={this.handleSelectVideo}
           />
         </div> : 'loading ....'}
       </div>
@@ -62,13 +64,17 @@ class MediaGalleryPage extends Component {
 MediaGalleryPage.propTypes = {
   images: PropTypes.array,
   selectedImage: PropTypes.object,
+  videos: PropTypes.array,
+  selectedVideo: PropTypes.object,
   actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = ({ images, videos }) => ({
   images: images[0],
   selectedImage: images.selectedImage,
-  videos });
+  videos: videos[0],
+  selectedVideo: videos.selectedVideo
+});
 
 const mapStateToDispatch = (dispatch) => ({ actions: bindActionCreators(Actions, dispatch) });
 

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const GalleryDisplay = ({ images, onHandleSelectImage, selectedImage }) => {
+const PhotosPage = ({ images, onHandleSelectImage, selectedImage }) => {
   return (
     <div className="image-gallery">
       <h4> Images </h4>
@@ -19,10 +19,10 @@ const GalleryDisplay = ({ images, onHandleSelectImage, selectedImage }) => {
   );
 };
 
-GalleryDisplay.propTypes = {
+PhotosPage.propTypes = {
   images: PropTypes.array.isRequired,
   selectedImage: PropTypes.object,
   onHandleSelectImage: PropTypes.func.isRequired
 };
 
-export default GalleryDisplay;
+export default PhotosPage;

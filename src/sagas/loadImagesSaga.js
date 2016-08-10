@@ -1,30 +1,46 @@
-import {put, call} from 'redux-saga/effects';
-import {delay} from 'redux-saga'; // takeEvery is a high-level API built using take and fork
-import {flickrImages, shutterStockImages, unsplashImages} from '../Api/api';
+import { put, call } from 'redux-saga/effects';
+import { delay } from 'redux-saga'; // takeEvery is a high-level API built using take and fork
+import { flickrImages, shutterStockVideos } from '../Api/api';
 import * as types from '../constants/actionTypes';
 
 
-export function* searchMediaSaga(action) {
+export function* searchMediaSaga({ payload }) {
   try {
-    const videos = yield call(shutterStockImages, action.payload);
-    const images = yield call(unsplashImages, action.payload);
+    const videos = yield call(shutterStockVideos, payload);
+    const images = yield call(flickrImages, payload);
     yield [
-      put({type: types.UNSPLASH_IMAGES_SUCCESS, images}),
-      put({type: types.SELECTED_IMAGE, image: images[0]}),
-      put({type: types.SHUTTER_VIDEOS_SUCCESS, videos})
-    ]
+      put({ type: types.SHUTTER_VIDEOS_SUCCESS, videos }),
+      put({ type: types.SELECTED_VIDEO, video: videos[0] }),
+      put({ type: types.FLICKR_IMAGES_SUCCESS, images }),
+      put({ type: types.SELECTED_IMAGE, image: images[0] })
+    ];
   } catch (error) {
-    yield put({type: 'LOAD_IMAGES_ERROR', error})
+    yield put({ type: 'SEARCH_MEDIA_ERROR', error });
   }
 }
 
-export function* loadFlickrImagesSaga() {
+export function* loadFlickrImagesSaga({ payload }) {
   try {
     yield call(delay, 1000);
-    const images = yield call(flickrImages);
-    yield put({type: types.FLICKR_IMAGES_SUCCESS, images});
-    yield put({type: types.SELECTED_IMAGE, image: images[0]});
+    const images = yield call(flickrImages, payload);
+    yield [
+      put({ type: types.FLICKR_IMAGES_SUCCESS, images }),
+      put({ type: types.SELECTED_IMAGE, image: images[0] })
+    ];
   } catch (error) {
-    yield put({type: 'LOAD_IMAGES_ERROR', error})
+    yield put({ type: 'LOAD_IMAGES_ERROR', error });
+  }
+}
+
+export function* loadShutterVideosSaga({ payload }) {
+  try {
+    yield call(delay, 1000);
+    const videos = yield call(shutterStockVideos, payload);
+    yield [
+      put({ type: types.SHUTTER_VIDEOS_SUCCESS, videos }),
+      put({ type: types.SELECTED_VIDEO, video: videos[0] })
+    ];
+  } catch (error) {
+    yield put({ type: 'LOAD_VIDEOS_FAILURE', error });
   }
 }
