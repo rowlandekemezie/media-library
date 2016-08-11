@@ -1,22 +1,26 @@
 import * as types from '../constants/actionTypes';
 
-export function flickrImagesAction() {
-  return {
-    type: types.FLICKR_IMAGES_REQUEST
-  }
-}
+export const flickrImagesAction = (payload) => ({
+  type: types.FLICKR_IMAGES_REQUEST,
+  payload
+});
 
-export function selectImageAction(image) {
-  return {
-    type: types.SELECTED_IMAGE,
-    image
-  }
-}
+export const selectImageAction = (image) => ({
+  type: types.SELECTED_IMAGE,
+  image
+});
 
-export function searchMediaAction(payload) {
-  return {
-    type: types.SEARCH_MEDIA_REQUEST,
-    payload
-  }
-}
+export const selectVideoAction = (video) => ({
+  type: types.SELECTED_VIDEO,
+  video
+});
 
+export const shutterVideosAction = (payload) => ({
+  type: types.SHUTTER_VIDEOS_REQUEST,
+  payload
+});
+
+export const searchMediaAction = (payload) => ({
+  type: types.SEARCH_MEDIA_REQUEST,
+  payload
+});

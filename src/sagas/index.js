@@ -1,11 +1,12 @@
-import {fork} from 'redux-saga/effects'; // The "fork" effect allows you make non-blocking calls which I can be joined later
-import {watchLoadFlickrImages, watchSearchMedia} from './watchers';
+import { fork } from 'redux-saga/effects'; // The "fork" effect allows for non-blocking calls
+import { watchLoadFlickrImages, watchLoadShutterVideos, watchSearchMedia } from './watchers';
 
 export function* watchers() {
-  yield[
+  yield [
     fork(watchLoadFlickrImages),
+    fork(watchLoadShutterVideos),
     fork(watchSearchMedia)
-  ]
+  ];
 }
 
 export default function* startForeman() {
