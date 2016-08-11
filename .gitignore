@@ -38,4 +38,4 @@ jspm_packages
 node_modules
 coverage
 .idea
-build
+.env

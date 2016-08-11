@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const HomePage = () => (
-  <div className="jumbotron">
+  <div className="jumbotron center">
     <h1 className="lead">Welcome to Media Library built with React, Redux, Redux-saga </h1>
     <div>
       <Link to="images">

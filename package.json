@@ -34,7 +34,7 @@
     "test:coverage": "rm -rf coverage/ && istanbul cover  _mocha -- --compilers js:babel-core/register ./.setup.js \"test\" --recursive",
     "test": "clear && _mocha  ./.setup.js \"test\" --recursive",
     "test:watch": "npm run test -- --watch",
-    "deploy": "npm run build && puststate-server build"
+    "deploy": "puststate-server build"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
