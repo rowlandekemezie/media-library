@@ -1,10 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import '../styles/gallery.css';
 import * as Actions from '../actions/mediaActions';
 import PhotosPage from '../components/PhotosPage';
 import VideosPage from '../components/VideosPage';
+import '../styles/style.css';
 
 
 class MediaGalleryPage extends Component {
@@ -34,11 +34,11 @@ class MediaGalleryPage extends Component {
   render() {
     const { images, selectedImage, videos, selectedVideo } = this.props;
     return (
-      <div>
+      <div className="container-fluid">
         {images ? <div>
           <input
             type="text"
-            ref={(ref) => (this.query = ref)}
+            ref={ref => this.query = ref}
           />
           <input
             type="submit"

@@ -1,26 +1,23 @@
 import React, { PropTypes } from 'react';
 
-const VideosPage = ({ videos, onHandleSelectVideo, selectedVideo }) => {
-  return (
-    <div className="col-md-6">
-      <h4> Videos </h4>
-      <div className="gallery-image">
-        <div id={selectedVideo.id}>
-          <h6 className="title">{selectedVideo.description}</h6>
-          <video width="500" height="500" controls src={selectedVideo.mediaUrl} type="video/mp4" alt="selected media" />
-        </div>
-      </div>
-      <div className="image-thumbnail">
-        {videos.map(video => (
-          <div key={video.id} onClick={onHandleSelectVideo.bind(this, video)}>
-            <h6> {video.title} </h6>
-            <video width="150" height="150" controls src={video.mediaUrl} type="video/mp4" alt="select media" />
-          </div>
-        ))}
+const VideosPage = ({ videos, onHandleSelectVideo, selectedVideo }) => (
+  <div className="col-md-6">
+    <h2> Videos </h2>
+    <div className="select-video">
+      <div id={selectedVideo.id}>
+        <h6 className="title">{selectedVideo.description}</h6>
+        <video controls src={selectedVideo.mediaUrl} alt={selectedVideo.title} />
       </div>
     </div>
-  );
-};
+    <div className="video-thumbnail">
+      {videos.map(video => (
+        <div key={video.id} onClick={onHandleSelectVideo.bind(this, video)}>
+          <video controls src={video.mediaUrl} alt={video.description} />
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
 VideosPage.propTypes = {
   videos: PropTypes.array,

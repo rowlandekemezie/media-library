@@ -1,21 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router';
-// import logo from '../logo.svg';
+import { Link } from 'react-router';
 
-const HomePage = () => {
-  return (
-    <div className="App">
-      <div className="App-header">
-        <img src="" className="App-logo" alt="logo"/>
-        <h2>Welcome to Imaggy</h2>
-      </div>
-      <p className="App-intro">
-        To get started, <Link to="images">
-        <button className="btn btn-primary"> click</button>
+const HomePage = () => (
+  <div className="jumbotron">
+    <h1 className="lead">Welcome to Media Library built with React, Redux, Redux-saga </h1>
+    <div>
+      <Link to="images">
+        <button className="btn btn-lg btn-primary"> Visit the Library</button>
       </Link>
-      </p>
     </div>
-  );
-};
+  </div>
+);
 
 export default HomePage;

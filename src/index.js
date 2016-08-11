@@ -4,7 +4,6 @@ import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import configureStore from './stores/configureStores';
 import { flickrImagesAction, shutterVideosAction } from './actions/mediaActions';
-import './styles/index.css';
 import routes from './routes';
 
 const store = configureStore();
