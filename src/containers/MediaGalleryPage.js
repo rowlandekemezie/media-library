@@ -45,16 +45,18 @@ class MediaGalleryPage extends Component {
             value="Search Library"
             onClick={this.handleSearch}
           />
-          <PhotosPage
-            images={images}
-            selectedImage={selectedImage}
-            onHandleSelectImage={this.handleSelectImage}
-          />
-          <VideosPage
-            videos={videos}
-            selectedVideo={selectedVideo}
-            onHandleSelectVideo={this.handleSelectVideo}
-          />
+          <div className="row">
+            <PhotosPage
+              images={images}
+              selectedImage={selectedImage}
+              onHandleSelectImage={this.handleSelectImage}
+            />
+            <VideosPage
+              videos={videos}
+              selectedVideo={selectedVideo}
+              onHandleSelectVideo={this.handleSelectVideo}
+            />
+          </div>
         </div> : 'loading ....'}
       </div>
     );
