@@ -18,6 +18,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "comma-dangle": [2, "never"],
     "arrow-body-style": ["error", "as-needed"],
+    "no-return-assign": 2,
     "no-use-before-define": [2, "nofunc"],
     "no-unused-expressions": 0
   }
