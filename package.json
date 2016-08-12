@@ -29,12 +29,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf buil/ && react-scripts build",
     "eject": "react-scripts eject",
     "test:coverage": "rm -rf coverage/ && istanbul cover  _mocha -- --compilers js:babel-core/register ./.setup.js \"test\" --recursive",
     "test": "clear && _mocha  ./.setup.js \"test\" --recursive",
     "test:watch": "npm run test -- --watch",
-    "deploy": "./build"
+    "deploy": "npm install -g pushstate-server && pushstate-server build"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
