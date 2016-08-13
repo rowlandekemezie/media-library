@@ -1,5 +1,5 @@
 import expect from 'expect';
-import imageReducer from '../src/reducers/imageReducers';
+import imageReducer from '../src/reducers/imageReducer';
 import * as types from '../src/constants/actionTypes';
 
 

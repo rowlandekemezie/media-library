@@ -1,7 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as Actions from '../actions/mediaActions';
+import {
+  selectImageAction, searchMediaAction,
+  selectVideoAction, shutterVideosAction, flickrImagesAction
+} from '../actions/mediaActions';
 import PhotosPage from '../components/PhotosPage';
 import VideosPage from '../components/VideosPage';
 import '../styles/style.css';
@@ -15,18 +17,23 @@ class MediaGalleryPage extends Component {
     this.handleSelectVideo = this.handleSelectVideo.bind(this);
   }
 
+  componentDidMount() {
+    this.props.dispatch(flickrImagesAction('rain'));
+    this.props.dispatch(shutterVideosAction('rain'));
+  }
+
   handleSelectImage(selectedImage) {
-    this.props.actions.selectImageAction(selectedImage);
+    this.props.dispatch(selectImageAction(selectedImage));
   }
 
   handleSelectVideo(selectedVideo) {
-    this.props.actions.selectVideoAction(selectedVideo);
+    this.props.dispatch(selectVideoAction(selectedVideo));
   }
 
   handleSearch(event) {
     event.preventDefault();
     if (this.query !== null) {
-      this.props.actions.searchMediaAction(this.query.value);
+      this.props.dispatch(searchMediaAction(this.query.value));
       this.query.value = '';
     }
   }
@@ -38,7 +45,7 @@ class MediaGalleryPage extends Component {
         {images ? <div>
           <input
             type="text"
-            ref={ref => this.query = ref}
+            ref={ref => (this.query = ref)}
           />
           <input
             type="submit"
@@ -68,9 +75,10 @@ MediaGalleryPage.propTypes = {
   selectedImage: PropTypes.object,
   videos: PropTypes.array,
   selectedVideo: PropTypes.object,
-  actions: PropTypes.object.isRequired
+  dispatch: PropTypes.func.isRequired
 };
 
+/* Subscribe component to redux store and merge the state into component's props */
 const mapStateToProps = ({ images, videos }) => ({
   images: images[0],
   selectedImage: images.selectedImage,
@@ -78,8 +86,6 @@ const mapStateToProps = ({ images, videos }) => ({
   selectedVideo: videos.selectedVideo
 });
 
-const mapStateToDispatch = (dispatch) => ({ actions: bindActionCreators(Actions, dispatch) });
-
+/* connect method from react-router connects the component with redux store */
 export default connect(
-  mapStateToProps,
-  mapStateToDispatch)(MediaGalleryPage);
+  mapStateToProps)(MediaGalleryPage);

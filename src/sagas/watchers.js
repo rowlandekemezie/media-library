@@ -1,15 +1,15 @@
-import { takeEvery } from 'redux-saga';
+import { takeLatest } from 'redux-saga';
 import { loadFlickrImagesSaga, loadShutterVideosSaga, searchMediaSaga } from './mediaSagas';
 import * as types from '../constants/actionTypes';
 
 export function* watchLoadFlickrImages() {
-  yield* takeEvery(types.FLICKR_IMAGES_REQUEST, loadFlickrImagesSaga);
+  yield* takeLatest(types.FLICKR_IMAGES_REQUEST, loadFlickrImagesSaga);
 }
 
 export function* watchLoadShutterVideos() {
-  yield* takeEvery(types.SHUTTER_VIDEOS_REQUEST, loadShutterVideosSaga);
+  yield* takeLatest(types.SHUTTER_VIDEOS_REQUEST, loadShutterVideosSaga);
 }
 
 export function* watchSearchMedia() {
-  yield* takeEvery(types.SEARCH_MEDIA_REQUEST, searchMediaSaga);
+  yield* takeLatest(types.SEARCH_MEDIA_REQUEST, searchMediaSaga);
 }

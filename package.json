@@ -27,14 +27,18 @@
     "expect": "latest",
     "pushstate-server": "latest"
   },
+  "bugs": {
+    "url": "https://github.com/andela-rekemezie/media-gallery/issues"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf buil/ && react-scripts build",
+    "build": "rm -rf build/ && react-scripts build",
     "eject": "react-scripts eject",
     "test:coverage": "rm -rf coverage/ && istanbul cover  _mocha -- --compilers js:babel-core/register ./.setup.js \"test\" --recursive",
     "test": "clear && _mocha  ./.setup.js \"test\" --recursive",
     "test:watch": "npm run test -- --watch",
-    "deploy": "npm install -g pushstate-server && pushstate-server build"
+    "deploy": "npm install -g pushstate-server && pushstate-server build",
+    "homepage": "https://media-gallery.herokuapp.com"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
