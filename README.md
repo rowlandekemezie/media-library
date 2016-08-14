@@ -5,7 +5,7 @@
 - Click here for the tutorial post.
 
 # Motivation
-media-gallery is a tutorial app to get all level of React developers to get up to speed with how to architect a scalable, maintainable and scalable react/redux application.
+media-gallery is a tutorial app to get all levels of React developers up to speed with how to architect a scalable, maintainable and testable react/redux application.
 
 # Technology used
 * [React](https://facebook.github.io/react/) as the core infrastructure.
