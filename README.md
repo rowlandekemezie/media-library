@@ -9,8 +9,8 @@ media-gallery is a tutorial app to get all level of React developers to get up t
 
 # Technology used
 * [React](https://facebook.github.io/react/) as the core infrastructure.
-* [Redux](https://github.com/reactjs/redux)for state management.
-* [Redux-saga](https://github.com/yelouafi/redux-saga).
+* [Redux](https://github.com/reactjs/redux) for state management.
+* [Redux-saga](https://github.com/yelouafi/redux-saga) for handling async tasks with agility.
 
 # Modules covered
 1. Introduction.
