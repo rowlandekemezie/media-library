@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const VideosPage = ({ videos, onHandleSelectVideo, selectedVideo }) => (
   <div className="col-md-6">
-    <h2> Videos </h2>
+    <h2>Videos</h2>
     <div className="select-video">
       <div id={selectedVideo.id}>
         <h6 className="title">{selectedVideo.description}</h6>

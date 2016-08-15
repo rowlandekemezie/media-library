@@ -15,7 +15,7 @@ export function* searchMediaSaga({ payload }) {
       put({ type: types.SELECTED_IMAGE, image: images[0] })
     ];
   } catch (error) {
-    yield put({ type: 'SEARCH_MEDIA_ERROR', error });
+    yield put({ type: 'SEARCH_MEDIA_FAILURE', error });
   }
 }
 
@@ -28,7 +28,7 @@ export function* loadFlickrImagesSaga({ payload }) {
       put({ type: types.SELECTED_IMAGE, image: images[0] })
     ];
   } catch (error) {
-    yield put({ type: 'LOAD_IMAGES_ERROR', error });
+    yield put({ type: 'LOAD_IMAGES_FAILURE', error });
   }
 }
 

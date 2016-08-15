@@ -5,7 +5,7 @@ const HomePage = () => (
   <div className="jumbotron">
     <h1 className="lead">Welcome to Media Library built with React, Redux, Redux-saga </h1>
     <div>
-      <Link to="images">
+      <Link to="library">
         <button className="btn btn-lg btn-primary"> Visit Library</button>
       </Link>
     </div>

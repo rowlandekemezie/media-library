@@ -1,5 +1,6 @@
 import { takeLatest } from 'redux-saga';
-import { loadFlickrImagesSaga, loadShutterVideosSaga, searchMediaSaga } from './mediaSagas';
+import { loadFlickrImagesSaga,
+  loadShutterVideosSaga, searchMediaSaga } from './mediaSagas';
 import * as types from '../constants/actionTypes';
 
 export function* watchLoadFlickrImages() {

@@ -9,7 +9,7 @@ import VideosPage from '../components/VideosPage';
 import '../styles/style.css';
 
 
-class MediaGalleryPage extends Component {
+export class MediaGalleryPage extends Component {
   constructor() {
     super();
     this.handleSearch = this.handleSearch.bind(this);
