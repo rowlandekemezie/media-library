@@ -5,14 +5,15 @@ import App from '../src/containers/App';
 
 
 describe('Test App', () => {
-  const wrapper = shallow(<App children="test children" />);
+  const props = ['test1', 'test2'];
+  const wrapper = shallow(<App children={props} />);
   it('should render self', () => {
     expect(wrapper.find('Header').length).toEqual(1);
     expect(wrapper.find('div').hasClass('container-fluid')).toBe(true);
   });
 
   it('should render children', () => {
-    expect(typeof wrapper.node.props.children).toBe('object');
+    expect(typeof wrapper.props().children).toBe('object');
   });
 });
 

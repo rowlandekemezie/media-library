@@ -9,9 +9,9 @@ import VideoPage from '../src/components/VideosPage';
 describe('Test for Video Page component', () => {
   const setUp = () => {
     const props = {
-      videos: [{ test: 'test video' }],
+      videos: [{ id: 1, test: 'test video' }],
       onHandleSelectVideo: expect.createSpy(),
-      selectedVideo: { test: 'test video' }
+      selectedVideo: { id: 1, test: 'test video' }
     };
     const Wrapper = mount(<VideoPage {...props} />);
     return { Wrapper };
@@ -22,9 +22,9 @@ describe('Test for Video Page component', () => {
     expect(Wrapper).toExist();
   });
   it('should have render  props', () => {
-    expect(Wrapper.props().videos).toEqual([{ test: 'test video' }]);
+    expect(Wrapper.props().videos).toEqual([{ id: 1, test: 'test video' }]);
     expect(typeof Wrapper.props().onHandleSelectVideo).toEqual('function');
-    expect(Wrapper.props().selectedVideo).toEqual({ test: 'test video' });
+    expect(Wrapper.props().selectedVideo).toEqual({ id: 1, test: 'test video' });
   });
 
   it('should render self', () => {

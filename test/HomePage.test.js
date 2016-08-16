@@ -1,8 +1,8 @@
 import React from 'react';
 import expect from 'expect';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
+import { Link } from 'react-router';
 import HomePage from '../src/components/HomePage';
-import {Link} from 'react-router';
 
 describe('Test for HomePage view', () => {
   it('should render home page', () => {

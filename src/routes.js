@@ -7,7 +7,7 @@ import HomePage from './components/HomePage';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="images" component={MediaGalleryPage} />
+    <Route path="library" component={MediaGalleryPage} />
   </Route>
 );
 
