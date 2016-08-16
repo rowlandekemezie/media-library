@@ -23,5 +23,5 @@ deploy:
   app:
     develop: media-gallery
     master: media-gallery
-after_deploy:
+before_deploy:
   - npm i pushstate-server -g
