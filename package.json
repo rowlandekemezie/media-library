@@ -18,6 +18,7 @@
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^3.0.2",
     "nock": "^8.0.0",
+    "react-addons-test-utils": "^15.3.0",
     "react-scripts": "0.2.1",
     "redux-mock-store": "^1.1.2"
   },
