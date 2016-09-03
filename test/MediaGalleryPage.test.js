@@ -61,6 +61,6 @@ describe('Test for MediaGalleryPage', () => {
     const input = testWrapper.find('input').last();
     const event = { preventDefault: () => {} };
     input.simulate('click', event);
-    expect(props.dispatch.calls.length).toBe(3);
+    expect(props.dispatch.calls.length).toBe(2);
   });
 });

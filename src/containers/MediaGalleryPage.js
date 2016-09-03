@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import {
   selectImageAction, searchMediaAction,
-  selectVideoAction, shutterVideosAction, flickrImagesAction
+  selectVideoAction
 } from '../actions/mediaActions';
 import PhotosPage from '../components/PhotosPage';
 import VideosPage from '../components/VideosPage';
@@ -18,8 +18,7 @@ export class MediaGalleryPage extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(flickrImagesAction('rain'));
-    this.props.dispatch(shutterVideosAction('rain'));
+    this.props.dispatch(searchMediaAction('rain'));
   }
 
   handleSelectImage(selectedImage) {
