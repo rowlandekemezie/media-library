@@ -6,6 +6,7 @@ import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import { MediaGalleryPage } from '../src/containers/MediaGalleryPage';
 
+
 const setup = () => {
   const props = {
     handleSearch: expect.createSpy(),

@@ -6,6 +6,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import PhotoPage from '../src/components/PhotosPage';
 
+
 describe('Test for Image Page component', () => {
   const setUp = () => {
     const props = {
@@ -21,6 +22,7 @@ describe('Test for Image Page component', () => {
   it('should assert that Component exist', () => {
     expect(Wrapper).toExist();
   });
+  
   it('should have render props', () => {
     expect(Wrapper.props().images).toEqual([{ id: 1, test: 'test image' }]);
     expect(typeof Wrapper.props().onHandleSelectImage).toEqual('function');
