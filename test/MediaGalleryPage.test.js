@@ -6,6 +6,7 @@ import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import { MediaGalleryPage } from '../src/containers/MediaGalleryPage';
 
+
 const setup = () => {
   const props = {
     handleSearch: expect.createSpy(),
@@ -61,6 +62,6 @@ describe('Test for MediaGalleryPage', () => {
     const input = testWrapper.find('input').last();
     const event = { preventDefault: () => {} };
     input.simulate('click', event);
-    expect(props.dispatch.calls.length).toBe(3);
+    expect(props.dispatch.calls.length).toBe(2);
   });
 });
