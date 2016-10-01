@@ -78,7 +78,8 @@ MediaGalleryPage.propTypes = {
 };
 
 /* Subscribe component to redux store and merge the state into component's props */
-const mapStateToProps = ({ images, videos }) => ({
+const mapStateToProps = ({ images, videos, loading }) => ({
+  loading: loading,
   images: images[0],
   selectedImage: images.selectedImage,
   videos: videos[0],

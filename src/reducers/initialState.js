@@ -1,4 +1,5 @@
 export default {
   images: [],
-  videos: []
+  videos: [],
+  loading: false
 };

@@ -8,6 +8,10 @@ describe('Test for searchMediaSaga', () => {
   const payload = 'test';
   const gen = searchMediaSaga({ payload });
 
+  it('should call fetching media', () => {
+    expect(gen.next(payload).value).toEqual(put({ type: 'FETCHING_MEDIA' }));
+  });
+
   it('should call shutterStockVideos API', () => {
     expect(gen.next(payload).value).toEqual(call(shutterStockVideos, payload));
   });
@@ -18,7 +22,7 @@ describe('Test for searchMediaSaga', () => {
 
   it('should yield array of objects', () => {
     const videos = [];
-    expect(gen.next(videos).value.length).toEqual(4);
+    expect(gen.next(videos).value.length).toEqual(5);
   });
 
   it('should dispatch failure effect', () => {
