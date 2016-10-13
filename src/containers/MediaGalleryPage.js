@@ -48,6 +48,7 @@ export class MediaGalleryPage extends Component {
           />
           <input
             type="submit"
+            className="btn btn-primary"
             value="Search Library"
             onClick={this.handleSearch}
           />
@@ -77,7 +78,7 @@ MediaGalleryPage.propTypes = {
   dispatch: PropTypes.func.isRequired
 };
 
-/* Subscribe component to redux store and merge the state into component's props */
+/* Subscribe component to redux store and merge the state into component\s props */
 const mapStateToProps = ({ images, videos }) => ({
   images: images[0],
   selectedImage: images.selectedImage,
