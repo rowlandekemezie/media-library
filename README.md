@@ -5,7 +5,7 @@
 
 
 - Click here for see the [Live demo](http://media-gallery.herokuapp.com).
-- Click here for the tutorial post.
+- Click [here](https://scotch.io/tutorials/build-a-media-library-with-react-redux-and-redux-saga-part-1) for the tutorial post.
 
 # Motivation
 media-gallery is a tutorial app to get all levels of React developers up to speed with how to architect a scalable, maintainable and testable react/redux application.
