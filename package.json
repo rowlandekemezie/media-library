@@ -23,16 +23,17 @@
     "redux-mock-store": "^1.1.2"
   },
   "dependencies": {
+    "enzyme": "^2.4.1",
+    "expect": "latest",
+    "isomorphic-fetch": "^2.2.1",
+    "jsdom": "^9.9.1",
+    "pushstate-server": "latest",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
     "redux": "^3.5.2",
-    "redux-saga": "^0.11.0",
-    "enzyme": "^2.4.1",
-    "expect": "latest",
-    "pushstate-server": "latest",
-    "isomorphic-fetch": "^2.2.1"
+    "redux-saga": "^0.11.0"
   },
   "bugs": {
     "url": "https://github.com/andela-rekemezie/media-gallery/issues"
