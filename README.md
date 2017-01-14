@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mentrie/media-library.svg?branch=master)](https://travis-ci.org/mentrie/media-library)
+
 [![Coverage Status](https://coveralls.io/repos/github/mentrie/media-library/badge.svg?branch=master)](https://coveralls.io/github/mentrie/media-library?branch=master)
 [![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/rowland?utm_source=github&utm_medium=button&utm_term=rowland&utm_campaign=github)
 
