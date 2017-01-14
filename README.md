@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/andela-rekemezie/media-library.svg?branch=master)](https://travis-ci.org/andela-rekemezie/media-library)
 [![Coverage Status](https://coveralls.io/repos/github/andela-rekemezie/media-library/badge.svg?branch=master)](https://coveralls.io/github/andela-rekemezie/media-library?branch=master)
+[![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/rowland?utm_source=github&utm_medium=button&utm_term=rowland&utm_campaign=github)
 
 ![Application UI](https://cloud.githubusercontent.com/assets/15085641/17646353/587e60d0-61bd-11e6-9403-82437ee3a6e6.png)
 
