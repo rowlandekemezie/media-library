@@ -41,7 +41,7 @@ export class MediaGalleryPage extends Component {
     const { images, selectedImage, videos, selectedVideo } = this.props;
     return (
       <div className="container-fluid">
-        {images ? <div>
+        {images && selectedImage ? <div>
           <input
             type="text"
             ref={ref => (this.query = ref)}

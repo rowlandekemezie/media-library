@@ -4,7 +4,7 @@ const PhotosPage = ({ images, onHandleSelectImage, selectedImage }) => (
   <div className="col-md-6">
     <h2>Images</h2>
     <div className="selected-image">
-      <div id={selectedImage.id}>
+      <div key={selectedImage.id}>
         <h6 className="title">{selectedImage.title}</h6>
         <img src={selectedImage.mediaUrl} alt={selectedImage.title} />
       </div>
