@@ -4,7 +4,7 @@ const VideosPage = ({ videos, onHandleSelectVideo, selectedVideo }) => (
   <div className="col-md-6">
     <h2>Videos</h2>
     <div className="select-video">
-      <div id={selectedVideo.id}>
+      <div key={selectedVideo.id}>
         <h6 className="title">{selectedVideo.description}</h6>
         <video controls src={selectedVideo.mediaUrl} alt={selectedVideo.title} />
       </div>
